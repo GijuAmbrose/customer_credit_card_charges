@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		table, th, td {
+  		border: 1px solid black;
+		}
+		.failed  td{
+			color: #FF0000 !important;
+		}
+
+		.success td{
+			color:  #FF5400 !important	;
+		}
+
+	</style>
+</head>
+	<body>
+			<h1>Credit Card Charge Details</h1>
+
+			<h2>Failed Charges</h2>
+			<table id="failed_table" class="failed">
+				<th>Customer Name</th>
+				<th>Charge Amount</th>
+				<th>Date of Charge Failed</th>
+				<% @failed_charges.each do |value|%>
+					<tr>
+						<td><%= value.first %></td>
+						<td><%= value.last["amount"]%></td>
+						<td><%= value.last["created"]%></td>
+					</tr>
+				<%end%>
+			</table>
+
+			<h2>Successful Charges</h2>
+			<table id="success_table" class="success">
+				<th>Customer Name</th>
+				<th>Charge Amount</th>
+				<th>Date of Charge Failed</th>
+				<% @successful_charges.each do |value|%>
+					<tr>
+						<td><%= value.first %></td>
+						<td><%= value.last["amount"]%></td>
+						<td><%= value.last["created"]%></td>
+					</tr>
+				<%end%>
+			</table>
+
+
+			<h2>Disputed Charges</h2>
+			<table class="disputed">
+				<th>Customer Name</th>
+				<th>Charge Amount</th>
+				<th>Date of Charge Failed</th>
+				<% @dispute_charges.each do |value|%>
+					<tr>
+						<td><%= value.first %></td>
+						<td><%= value.last["amount"]%></td>
+						<td><%= value.last["created"]%></td>
+					</tr>
+				<%end%>
+			</table>
+
+
+	</body>
+</html>

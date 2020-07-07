@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: postgres
+  password: postgres
+  pool: 20
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: customer_credit_card_dev
+  username: postgres
+  password: postgres
+  host: localhost
+test:
+  <<: *default
+  database: customer_credit_card_test
